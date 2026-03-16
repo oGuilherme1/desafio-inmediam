@@ -6,7 +6,7 @@ Bem-vindo ao desafio técnico da **InMediam**!
 
 Neste desafio, você receberá um projeto já existente que simula uma **tela de pagamento de assinatura**. O sistema permite que um usuário visualize os detalhes de uma cobrança e realize o pagamento com cartão de crédito, integrado com a **API do Asaas** (sandbox).
 
-Porém, o código possui **diversos problemas** — bugs, falhas de segurança, más práticas e ausência de validações. Seu objetivo é **identificar e corrigir** o máximo de problemas que conseguir.
+Porém, o código possui **diversos problemas**: bugs, falhas de segurança, más práticas de desenvolvimento e ausência de validações. Seu objetivo é **identificar e corrigir** o máximo de problemas que conseguir.
 
 > Este desafio simula um cenário real de manutenção de código legado, algo comum no dia a dia de qualquer desenvolvedor.
 
@@ -209,7 +209,7 @@ O código possui problemas intencionais em **ambas as camadas** (frontend e back
 
 # Tempo estimado
 
-O desafio foi projetado para ser completado em **2 a 3 horas**. Não se preocupe em encontrar absolutamente tudo — queremos entender seu raciocínio e como você aborda problemas em código existente.
+O desafio foi projetado para ser completado em **2 a 3 horas**. Não se preocupe em encontrar absolutamente tudo, queremos entender seu raciocínio e como você aborda problemas em código existente.
 
 ---
 
