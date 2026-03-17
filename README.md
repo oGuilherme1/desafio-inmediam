@@ -4,7 +4,7 @@
 
 Bem-vindo ao desafio técnico da **InMediam**!
 
-Neste desafio, você receberá um projeto já existente que simula uma **tela de pagamento de assinatura**. O sistema permite que um usuário visualize os detalhes de uma cobrança e realize o pagamento com cartão de crédito, integrado com a **API do Asaas** (sandbox).
+Neste desafio, você receberá um projeto já existente que simula uma **tela de pagamento de assinatura**. O sistema permite que um usuário visualize os **detalhes** de uma cobrança e realize o pagamento com cartão de crédito, integrado com a **API do Asaas** (sandbox).
 
 Porém, o código possui **diversos problemas**: bugs, falhas de segurança, más práticas de desenvolvimento e ausência de validações. Seu objetivo é **identificar e corrigir** o máximo de problemas que conseguir.
 
