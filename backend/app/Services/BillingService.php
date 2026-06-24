@@ -59,8 +59,6 @@ class BillingService extends AbstractService
             throw new Exception('Payment not created', 500);
         }
 
-        DB::beginTransaction();
-
         try {
             $customer = $this->asaasService->createCustomer([
                 'name' => $billing->customer->name,
@@ -92,26 +90,25 @@ class BillingService extends AbstractService
                 'addressNumber' => $data['address_number'],
             ]);
 
-            $credit_card = $this->creditCardService->create([
-                'customer_id' => $billing->customer_id,
-                'card_holder_name' => $data['card_holder_name'],
-                'card_last_four' => $response->creditCard['creditCardNumber'],
-                'card_brand' => $response->creditCard['creditCardBrand'],
-                'card_token' => $response->creditCard['creditCardToken'],
-            ]);
+            DB::transaction(function () use ($payment, $billing, $response, $data) {
+                $credit_card = $this->creditCardService->create([
+                    'customer_id' => $billing->customer_id,
+                    'card_holder_name' => $data['card_holder_name'],
+                    'card_last_four' => $response->creditCard['creditCardNumber'],
+                    'card_brand' => $response->creditCard['creditCardBrand'],
+                    'card_token' => $response->creditCard['creditCardToken'],
+                ]);
 
-            $payment->update([
-                'credit_card_id' => $credit_card->id,
-                'status' => PaymentStatus::CONFIRMED->value,
-                'paid_at' => now(),
-            ]);
+                $payment->update([
+                    'credit_card_id' => $credit_card->id,
+                    'status' => PaymentStatus::CONFIRMED->value,
+                    'paid_at' => now(),
+                ]);
 
-            $billing->status = BillingStatus::PAID;
-            $billing->save();
-
-            DB::commit();
+                $billing->status = BillingStatus::PAID;
+                $billing->save();
+            });
         } catch (\Exception $e) {
-            DB::rollBack();
             $payment->update(['status' => PaymentStatus::FAILED]);
             throw $e;
         }
