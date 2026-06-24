@@ -97,19 +97,6 @@
 - **Problema:** Não havia nenhum teste no projeto.
 - **Correção:** Adicionados testes Unit (services + repository), Feature (HTTP do controller) e Integration (Asaas sandbox real).
 - **Causa do Problema:** Sem testes não é possível garantir que correções não quebram funcionalidades existentes.
-
-### 17. `ASAAS_API_KEY` ausente no `.env.example`
-
-- **Problema:** `.env.example` não documentava a variável `ASAAS_API_KEY`.
-- **Correção:** Adicionada ao final do arquivo.
-- **Causa do Problema:** Desenvolvedores novos não saberiam que precisam configurar essa variável.
-
-### 18. Rota `GET /` sem health-check
-
-- **Problema:** A rota `GET /api/` não existia, embora mencionada no README.
-- **Correção:** Mantida a rota já existente em `routes/api.php`.
-- **Causa do Problema:** Documentação e implementação devem estar alinhadas.
-
 ---
 
 ## Frontend
