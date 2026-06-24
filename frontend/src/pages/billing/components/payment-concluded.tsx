@@ -46,7 +46,7 @@ export function PaymentConcluded({ payment }: PaymentConcludedProps) {
         <div className="flex items-center justify-between">
           <span className="text-sm text-muted-foreground">Cartão</span>
           <span className="font-medium text-foreground">
-            {creditCard.card_brand} •••• {creditCard.card_last_four}
+            {creditCard.card_brand === 'UNKNOWN' ? 'Cartão' : creditCard.card_brand} •••• {creditCard.card_last_four}
           </span>
         </div>
 
